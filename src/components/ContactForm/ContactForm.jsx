@@ -7,6 +7,9 @@ import {
   min_name_length,
   min_number_length,
 } from '../../utils/constants'
+import { useDispatch } from 'react-redux'
+import { nanoid } from '@reduxjs/toolkit'
+import { addContact } from '../../redux/contactsSlice'
 
 const contactFormSchema = Yup.object({
   name: Yup.string()
@@ -37,7 +40,17 @@ const form_Initial_Values = {
   number: '',
   favColor: '',
 }
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch()
+  const onAddContact = (values) => {
+    const finalContact = {
+      ...values,
+      id: nanoid(),
+    }
+    const action = addContact(finalContact)
+    dispatch(action)
+  }
+
   const handleSubmitEvent = (values, actions) => {
     onAddContact(values)
     actions.resetForm()
@@ -53,35 +66,47 @@ const ContactForm = ({ onAddContact }) => {
           <label>
             <span>Name</span>
             <br />
-            <Field className={css.contactFormInput} type="text" name="name" />
+            <Field
+              className={css.contactFormInput}
+              type="text"
+              name="name"
+              placeholder="Edit contact name"
+            />
             <ErrorMessage component="p" name="name" />
           </label>
           <br />
           <label>
             <span>Number</span>
             <br />
-            <Field className={css.contactFormInput} type="tel" name="number" />
+            <Field
+              className={css.contactFormInput}
+              type="tel"
+              name="number"
+              placeholder="xxx-xxx-xxxx"
+            />
             <ErrorMessage component="p" name="number" />
           </label>
           <br />
-          <span>Favourite color:</span>
-          <label>
-            <br />
-            <span className={css.redColor}>Red:</span>
-            <Field type="radio" value="red" name="favColor" />
-          </label>
-          <label>
-            <span className={css.greenColor}>Green:</span>
-            <Field type="radio" value="green" name="favColor" />
-          </label>
-          <label>
-            <span className={css.blueColor}>Blue:</span>
-            <Field type="radio" value="blue" name="favColor" />
-          </label>
-          <label>
-            <span className={css.orangeColor}>Orange:</span>
-            <Field type="radio" value="orange" name="favColor" />
-          </label>
+          <span className={css.favColorTitle}>Favourite color:</span>
+          <div className={css.favColor}>
+            <label className={css.favColorLabel}>
+              <br />
+              <span className={css.redColor}>Red:</span>
+              <Field type="radio" value="red" name="favColor" />
+            </label>
+            <label className={css.favColorLabel}>
+              <span className={css.greenColor}>Green:</span>
+              <Field type="radio" value="green" name="favColor" />
+            </label>
+            <label className={css.favColorLabel}>
+              <span className={css.blueColor}>Blue:</span>
+              <Field type="radio" value="blue" name="favColor" />
+            </label>
+            <label className={css.favColorLabel}>
+              <span className={css.orangeColor}>Orange:</span>
+              <Field type="radio" value="orange" name="favColor" />
+            </label>
+          </div>
           <ErrorMessage component="p" name="favColor" />
           <br />
           <button className={css.contactFormBtn} type="submit">

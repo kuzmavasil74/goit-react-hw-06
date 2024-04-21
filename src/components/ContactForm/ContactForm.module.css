@@ -1,6 +1,11 @@
 .contactForm {
   padding: 10px;
-  width: 250px;
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1.5px solid rgba(44, 92, 58, 0.656);
   border-radius: 10px;
   margin-bottom: 10px;
@@ -23,6 +28,27 @@
   margin-left: auto;
   margin-right: auto;
 }
+.favColorTitle {
+  padding-bottom: 20px;
+}
+.favColor {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+  margin-right: auto;
+  margin-left: 50px;
+}
+.favColorLabel {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1.5px solid rgb(126, 23, 23);
+  background-color: #eac4c4;
+}
+
 .yellowColor {
   color: yellow;
 }
