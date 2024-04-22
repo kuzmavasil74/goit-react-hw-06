@@ -1,6 +1,9 @@
-import css from './Contact.module.css'
+import { useDispatch } from 'react-redux'
+import { deleteContact } from '../../redux/contactsSlice'
 
-const Contact = ({ onDeleteContact, name, number, favColor, id }) => {
+import css from './Contact.module.css'
+const Contact = ({ name, number, favColor, id }) => {
+  const dispatch = useDispatch()
   return (
     <div className={css.contactCart} key={id}>
       <ul className={css.contactList}>
@@ -13,7 +16,9 @@ const Contact = ({ onDeleteContact, name, number, favColor, id }) => {
       </ul>
       <button
         type="button"
-        onClick={() => onDeleteContact(id)}
+        onClick={() => {
+          return dispatch(deleteContact(id))
+        }}
         className={css.cantactListBtn}
       >
         {' '}

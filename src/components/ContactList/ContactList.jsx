@@ -26,6 +26,7 @@ const ContactList = () => {
             name={contact.name}
             favColor={contact.favColor}
             number={contact.number}
+            id={contact.id}
             onDeleteContact={onDeleteContact}
           />
         )
