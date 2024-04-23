@@ -1,5 +1,4 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import css from './ContactForm.module.css'
 import * as Yup from 'yup'
 import {
   max_name_length,
@@ -10,6 +9,8 @@ import {
 import { useDispatch } from 'react-redux'
 import { nanoid } from '@reduxjs/toolkit'
 import { addContact } from '../../redux/contactsSlice'
+
+import css from './ContactForm.module.css'
 
 const contactFormSchema = Yup.object({
   name: Yup.string()
@@ -34,7 +35,6 @@ const contactFormSchema = Yup.object({
       'Favourite color must be: red, green, blue, orange'
     ),
 })
-
 const form_Initial_Values = {
   name: '',
   number: '',
@@ -50,11 +50,11 @@ const ContactForm = () => {
     const action = addContact(finalContact)
     dispatch(action)
   }
-
   const handleSubmitEvent = (values, actions) => {
     onAddContact(values)
     actions.resetForm()
   }
+
   return (
     <div>
       <Formik

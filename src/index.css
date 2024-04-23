@@ -13,7 +13,6 @@ li {
   margin: 0;
   padding: 0;
 }
-
 /* Скидання стандартного оформлення тексту */
 body,
 button,
@@ -23,24 +22,20 @@ textarea {
   font-family: sans-serif;
   padding: 10px;
 }
-
 /* Заборона обрізання тексту у властивості overflow */
 * {
   box-sizing: border-box;
 }
-
 /* Скидання стилів списків */
 ul,
 ol {
   list-style: none;
 }
-
 /* Скидання стилів гіперпосилань */
 a {
   text-decoration: none;
   color: inherit;
 }
-
 /* Скидання стилів кнопок */
 button {
   cursor: pointer;

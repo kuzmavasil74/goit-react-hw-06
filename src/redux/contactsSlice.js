@@ -5,7 +5,6 @@ const INITIAL_STATE = {
     items: [],
   },
 }
-
 const contactSlice = createSlice({
   // Ім'я слайсу
   name: 'contact', // Початковий стан редюсера слайсу
@@ -22,8 +21,5 @@ const contactSlice = createSlice({
   },
 })
 
-// Генератори екшенів
 export const { addContact, deleteContact } = contactSlice.actions
-
-// Редюсер слайсу
 export const contactSliceReducer = contactSlice.reducer

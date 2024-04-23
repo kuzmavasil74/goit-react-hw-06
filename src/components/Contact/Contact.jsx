@@ -4,6 +4,7 @@ import { deleteContact } from '../../redux/contactsSlice'
 import css from './Contact.module.css'
 const Contact = ({ name, number, favColor, id }) => {
   const dispatch = useDispatch()
+
   return (
     <div className={css.contactCart} key={id}>
       <ul className={css.contactList}>
@@ -11,7 +12,6 @@ const Contact = ({ name, number, favColor, id }) => {
           <div style={{ backgroundColor: favColor }} className={css.color} />
           👨‍🦱 {name}
         </li>
-
         <li className={css.contactListItem}>☎️ {number}</li>
       </ul>
       <button
@@ -27,4 +27,5 @@ const Contact = ({ name, number, favColor, id }) => {
     </div>
   )
 }
+
 export default Contact
